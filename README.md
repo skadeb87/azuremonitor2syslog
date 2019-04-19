@@ -25,9 +25,22 @@ Note: To send the syslog messages to an internal server in a VNET, configure the
   * SYSLOG_SERVER: The remote syslog server
   * SYSLOG_PORT: The port syslog service is running
   * SYSLOG_PROTOCOL: TCP or UDP
-  
-  
-  Note: Make sure the EventHub function app extension is installed. See: https://github.com/Azure/azure-functions-host/wiki/Updating-your-function-app-extensions
+ 
+*Stop the Function App
+
+*Navigate to the Function App's Kudu Diagnostic Console [functionAppName].scm.azurewebsites.net/DebugConsole
+
+*Navigate to Debug Console > CMD
+
+*In the console Navigate to the Function App root (i.e. D:\home\site\wwwroot)
+
+*Run ```npm i -g azure-functions-core-tools@core --unsafe-perm true``` to get the latest version of core tools
+
+*Navigate back to the Function App Root if necessary
+
+*Run ```func extensions install -p Microsoft.Azure.WebJobs.Extensions.EventHubs -v 3.0.0```
+
+  Note: Make sure the lastet version of the EventHub function app extension is used. See the table in: https://github.com/Azure/azure-functions-host/wiki/Updating-your-function-app-extensions
 
 
 
